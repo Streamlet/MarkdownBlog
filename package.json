@@ -1,11 +1,11 @@
 {
-  "name": "helloworld",
+  "name": "markdown-blog",
   "version": "1.0.0",
-  "description": "Electron Hello World",
+  "description": "Markdown Blog",
   "author": "Streamlet",
   "main": "main.js",
   "build": {
-    "appId": "helloworld",
+    "appId": "MarkdownBlog",
     "artifactName": "${name}-${os}.${ext}",
     "mac": {
       "target": "dmg"
