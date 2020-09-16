@@ -32,5 +32,8 @@
   "devDependencies": {
     "electron": "^10.1.1",
     "electron-builder": "^22.8.0"
+  },
+  "dependencies": {
+    "markdown-it": "^11.0.1"
   }
 }
