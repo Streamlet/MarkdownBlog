@@ -27,6 +27,7 @@
   },
   "scripts": {
     "start": "electron .",
+    "debug": "electron --inspect=12345 .",
     "dist": "electron-builder --publish=never"
   },
   "devDependencies": {
@@ -40,6 +41,7 @@
     "eslint-plugin-standard": "^4.0.1"
   },
   "dependencies": {
-    "markdown-it": "^11.0.1"
+    "markdown-it": "^11.0.1",
+    "metaweblog-api": "^1.2.0"
   }
 }

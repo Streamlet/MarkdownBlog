@@ -1,5 +1,5 @@
 const { app, Menu } = require('electron')
-const { editor, misc } = require('./cmd/cmd.js')
+const { misc, editor, publishing } = require('./cmd/cmd.js')
 const env = require('./env.js')
 
 const isMac = env.platform === env.PLATFORMS.DARWIN
@@ -24,6 +24,16 @@ const template = [
   {
     label: 'File',
     submenu: [
+      {
+        label: 'Publish',
+        click: async () => {
+          const activedEditor = editor.activedEditor()
+          if (activedEditor) {
+            const html = await editor.getEditorHtml(activedEditor)
+            publishing.showWindow(activedEditor, html)
+          }
+        },
+      },
       ...(isMac ? [
         { role: 'close' },
       ] : [
@@ -96,7 +106,9 @@ const template = [
     submenu: [
       {
         label: 'Website',
-        click: misc.showWebSite,
+        click: () => {
+          misc.showWebSite()
+        },
       },
     ],
   },
