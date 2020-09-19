@@ -1,12 +1,12 @@
 {
-  "name": "markdown-blog",
+  "name": "MarkdownBlog",
   "version": "1.0.0",
   "description": "Markdown Blog",
   "author": "Streamlet",
   "main": "main.js",
   "build": {
     "appId": "MarkdownBlog",
-    "artifactName": "${name}-${os}.${ext}",
+    "artifactName": "markdown-blog-${os}.${ext}",
     "mac": {
       "target": "dmg"
     },
@@ -31,7 +31,13 @@
   },
   "devDependencies": {
     "electron": "^10.1.1",
-    "electron-builder": "^22.8.0"
+    "electron-builder": "^22.8.0",
+    "eslint": "^7.9.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   },
   "dependencies": {
     "markdown-it": "^11.0.1"
