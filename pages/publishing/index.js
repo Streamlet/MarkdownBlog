@@ -2,7 +2,7 @@ const { ipcRenderer, remote } = require('electron')
 const MetaWeblog = require('metaweblog-api')
 const ipc = require('../../ipc/ipc.js')
 
-let url, username, password, fetchCategories, categoriesContainer, title, publish
+let url, username, password, fetchCategories, categoriesContainer, title, publish, close
 let content
 let blogApi, blogId
 
@@ -87,10 +87,15 @@ const onPublish = async function () {
     return
   }
 
-  remote.dialog.showMessageBox(remote.getCurrentWindow(), {
+  await remote.dialog.showMessageBox(remote.getCurrentWindow(), {
     type: 'info',
     message: 'Success!',
   })
+
+  window.close()
+}
+const onClose = function () {
+  window.close()
 }
 
 const onReady = function () {
@@ -101,6 +106,7 @@ const onReady = function () {
   categoriesContainer = document.getElementById('categories-container')
   title = document.getElementById('title')
   publish = document.getElementById('publish')
+  close = document.getElementById('close')
 
   url.addEventListener('change', checkBlogInfo)
   url.addEventListener('keyup', checkBlogInfo)
@@ -115,6 +121,7 @@ const onReady = function () {
   title.addEventListener('keyup', checkPublish)
 
   publish.addEventListener('click', onPublish)
+  close.addEventListener('click', onClose)
 }
 
 window.addEventListener('DOMContentLoaded', onReady)
