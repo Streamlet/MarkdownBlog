@@ -1,5 +1,5 @@
 import { BrowserWindow } from 'electron'
-import { ipcMsg } from '../ipc/ipc'
+import { ipcMsg } from '../../shared/ipc/ipc'
 
 export function showWindow (parent, html) {
   const win = new BrowserWindow({
@@ -19,7 +19,7 @@ export function showWindow (parent, html) {
   win.once('ready-to-show', () => {
     win.show()
   })
-  win.loadFile('./pages/publishing/index.html')
+  win.loadFile('./src/renderer/publishing/index.html')
   win.webContents.on('did-finish-load', () => {
     win.webContents.send(ipcMsg.PUBLISHER_SET_HTML, html)
   })

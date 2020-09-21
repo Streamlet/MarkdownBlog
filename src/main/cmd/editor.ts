@@ -1,5 +1,5 @@
 import { BrowserWindow, ipcMain } from 'electron'
-import { ipcMsg } from '../ipc/ipc'
+import { ipcMsg } from '../../shared/ipc/ipc'
 
 let theActivedEditor: BrowserWindow = null
 
@@ -22,7 +22,7 @@ export function newWindow () {
       theActivedEditor = null
     }
   })
-  win.loadFile('./pages/editor/index.html')
+  win.loadFile('./src/renderer/editor/index.html')
 }
 
 export function activedEditor () {

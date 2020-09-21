@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Markdown Blog",
   "author": "Streamlet",
-  "main": "main.js",
+  "main": "out/main/app.js",
   "build": {
     "appId": "org.streamlet.markdown_blog",
     "artifactName": "${name}-${os}.${ext}",

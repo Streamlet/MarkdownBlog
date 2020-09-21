@@ -1,6 +1,6 @@
 import { ipcRenderer, remote } from 'electron'
 import MetaWeblog from 'metaweblog-api'
-import { ipcMsg } from '../../ipc/ipc'
+import { ipcMsg } from '../../shared/ipc/ipc'
 
 let url, username, password, fetchCategories, categoriesContainer, title, publish, close
 let content

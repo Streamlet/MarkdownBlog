@@ -1,5 +1,5 @@
 .*
-*.js
-package-lock.json
-node_modules
-dist
+/out
+/package-lock.json
+/node_modules
+/dist
