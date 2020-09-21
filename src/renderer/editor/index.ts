@@ -3,15 +3,15 @@ import markdownIt from 'markdown-it'
 import {ipcMsg} from '../../shared/ipc/ipc'
 
 const md = markdownIt()
-let editor, preview
+let editor: HTMLTextAreaElement, preview: HTMLDivElement
 
 const updatePreview = () => {
   preview.innerHTML = md.render(editor.value)
 }
 
 const onReady = function () {
-  editor = document.getElementById('editor')
-  preview = document.getElementById('preview')
+  editor = document.getElementById('editor') as HTMLTextAreaElement
+  preview = document.getElementById('preview') as HTMLDivElement
 
   editor.addEventListener('keyup', updatePreview)
   editor.addEventListener('change', updatePreview)

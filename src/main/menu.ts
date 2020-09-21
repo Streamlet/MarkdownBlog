@@ -31,9 +31,10 @@ const template:  MenuItemConstructorOptions[]  = [
         click: async (menuItem, browserWindow, event) => {
           const activedEditor = editor.activedEditor()
           if (activedEditor) {
-            const html = await editor.getEditorHtml(activedEditor)
+            const html = await editor.getEditorHtml(activedEditor) as string
             publishing.showWindow(activedEditor, html)
           }
+          
         },
       },
       ...(isMac ? [

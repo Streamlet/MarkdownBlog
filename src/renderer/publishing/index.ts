@@ -2,9 +2,9 @@ import { ipcRenderer, remote } from 'electron'
 import MetaWeblog from 'metaweblog-api'
 import { ipcMsg } from '../../shared/ipc/ipc'
 
-let url, username, password, fetchCategories, categoriesContainer, title, publish, close
-let content
-let blogApi, blogId
+let url: HTMLInputElement, username: HTMLInputElement, password: HTMLInputElement, fetchCategories: HTMLInputElement, categoriesContainer: HTMLDivElement, title: HTMLInputElement, publish: HTMLInputElement, close: HTMLInputElement
+let content: string
+let blogApi: MetaWeblog, blogId: string
 
 const getBlogApi = async function () {
   if (!blogApi) {
@@ -64,11 +64,11 @@ const onPublish = async function () {
   if (!await getBlogApi()) {
     return
   }
-  const categories = categoriesContainer.getElementsByClassName('categories')
+  const categories = categoriesContainer.getElementsByClassName('categories') as HTMLCollection
   const categoryIds = []
   for (const i in categories) {
-    if (categories[i].checked) {
-      categoryIds.push(categories[i].value)
+    if ((categories[i] as HTMLInputElement).checked) {
+      categoryIds.push((categories[i] as HTMLInputElement).value)
     }
   }
 
@@ -99,14 +99,14 @@ const onClose = function () {
 }
 
 const onReady = function () {
-  url = document.getElementById('url')
-  username = document.getElementById('username')
-  password = document.getElementById('password')
-  fetchCategories = document.getElementById('fetch-categories')
-  categoriesContainer = document.getElementById('categories-container')
-  title = document.getElementById('title')
-  publish = document.getElementById('publish')
-  close = document.getElementById('close')
+  url = document.getElementById('url') as HTMLInputElement
+  username = document.getElementById('username') as HTMLInputElement
+  password = document.getElementById('password') as HTMLInputElement
+  fetchCategories = document.getElementById('fetch-categories') as HTMLInputElement
+  categoriesContainer = document.getElementById('categories-container') as HTMLDivElement
+  title = document.getElementById('title') as HTMLInputElement
+  publish = document.getElementById('publish') as HTMLInputElement
+  close = document.getElementById('close') as HTMLInputElement
 
   url.addEventListener('change', checkBlogInfo)
   url.addEventListener('keyup', checkBlogInfo)
@@ -126,7 +126,7 @@ const onReady = function () {
 
 window.addEventListener('DOMContentLoaded', onReady)
 
-const onSetHtml = function (e, html) {
+const onSetHtml = function (e: Electron.IpcRendererEvent, html: string) {
   content = html
   checkPublish()
 }

@@ -1,7 +1,7 @@
 import { BrowserWindow } from 'electron'
 import { ipcMsg } from '../../shared/ipc/ipc'
 
-export function showWindow (parent, html) {
+export function showWindow (parent: BrowserWindow, html: string) {
   const win = new BrowserWindow({
     webPreferences: {
       nodeIntegration: true,
