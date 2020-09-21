@@ -1,7 +1,7 @@
-const { BrowserWindow } = require('electron')
-const ipc = require('../ipc/ipc.js')
+import { BrowserWindow } from 'electron'
+import { ipcMsg } from '../ipc/ipc'
 
-module.exports.showWindow = function (parent, html) {
+export function showWindow (parent, html) {
   const win = new BrowserWindow({
     webPreferences: {
       nodeIntegration: true,
@@ -21,6 +21,6 @@ module.exports.showWindow = function (parent, html) {
   })
   win.loadFile('./pages/publishing/index.html')
   win.webContents.on('did-finish-load', () => {
-    win.webContents.send(ipc.PUBLISHER_SET_HTML, html)
+    win.webContents.send(ipcMsg.PUBLISHER_SET_HTML, html)
   })
 }

@@ -1,6 +1,6 @@
-const { ipcRenderer, remote } = require('electron')
-const MetaWeblog = require('metaweblog-api')
-const ipc = require('../../ipc/ipc.js')
+import { ipcRenderer, remote } from 'electron'
+import MetaWeblog from 'metaweblog-api'
+import { ipcMsg } from '../../ipc/ipc'
 
 let url, username, password, fetchCategories, categoriesContainer, title, publish, close
 let content
@@ -131,4 +131,4 @@ const onSetHtml = function (e, html) {
   checkPublish()
 }
 
-ipcRenderer.on(ipc.PUBLISHER_SET_HTML, onSetHtml)
+ipcRenderer.on(ipcMsg.PUBLISHER_SET_HTML, onSetHtml)

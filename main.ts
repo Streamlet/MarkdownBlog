@@ -1,7 +1,7 @@
-const { app, BrowserWindow } = require('electron')
-const { editor } = require('./cmd/cmd.js')
-const menu = require('./menu.js')
-const env = require('./env.js')
+import { app, BrowserWindow } from 'electron'
+import * as editor from './cmd/editor'
+import * as menu from './menu'
+import * as env from './env'
 
 app.whenReady().then(() => {
   editor.newWindow()

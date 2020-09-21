@@ -1,12 +1,13 @@
 {
-  "name": "MarkdownBlog",
+  "name": "markdown-blog",
+  "productName": "MarkdownBlog",
   "version": "1.0.0",
   "description": "Markdown Blog",
   "author": "Streamlet",
   "main": "main.js",
   "build": {
-    "appId": "MarkdownBlog",
-    "artifactName": "markdown-blog-${os}.${ext}",
+    "appId": "org.streamlet.markdown_blog",
+    "artifactName": "${name}-${os}.${ext}",
     "mac": {
       "target": "dmg"
     },
@@ -26,9 +27,9 @@
     }
   },
   "scripts": {
+    "build": "tsc --build tsconfig.json",
     "start": "electron .",
-    "debug": "electron --inspect=12345 .",
-    "dist": "electron-builder --publish=never"
+    "dist": "npm run build && electron-builder --publish=never"
   },
   "devDependencies": {
     "electron": "^10.1.1",
@@ -38,7 +39,8 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "typescript": "^4.0.3"
   },
   "dependencies": {
     "markdown-it": "^11.0.1",

@@ -1,7 +1,8 @@
-const { ipcRenderer } = require('electron')
-const ipc = require('../../ipc/ipc.js')
-const md = require('markdown-it')()
+import { ipcRenderer } from 'electron'
+import {ipcMsg} from '../../ipc/ipc'
+import markdownIt from 'markdown-it'
 
+const md = markdownIt()
 let editor, preview
 
 const updatePreview = () => {
@@ -23,6 +24,6 @@ window.addEventListener('DOMContentLoaded', onReady)
 const onGetHtml = function () {
   return md.render(editor.value)
 }
-ipcRenderer.on(ipc.EDITOR_GET_HTML, () => {
-  ipcRenderer.send(ipc.EDITOR_RETURN_HTML, onGetHtml())
+ipcRenderer.on(ipcMsg.EDITOR_GET_HTML, () => {
+  ipcRenderer.send(ipcMsg.EDITOR_RETURN_HTML, onGetHtml())
 })
