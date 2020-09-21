@@ -6,7 +6,7 @@ import * as env from './env'
 
 const isMac = env.platform === env.PLATFORMS.DARWIN
 
-const template:  MenuItemConstructorOptions[]  = [
+const template: MenuItemConstructorOptions[] = [
   // { role: 'appMenu' }
   ...(isMac ? [{
     label: app.name,
@@ -34,14 +34,14 @@ const template:  MenuItemConstructorOptions[]  = [
             const html = await editor.getEditorHtml(activedEditor) as string
             publishing.showWindow(activedEditor, html)
           }
-          
+
         },
       },
       ...(isMac ? [
         { role: 'close' as MenuItemConstructorOptions['role'] },
       ] : [
-        { role: 'quit' as MenuItemConstructorOptions['role'] },
-      ]),
+          { role: 'quit' as MenuItemConstructorOptions['role'] },
+        ]),
     ],
   },
   // { role: 'editMenu' }
@@ -67,10 +67,10 @@ const template:  MenuItemConstructorOptions[]  = [
           ],
         },
       ] : [
-        { role: 'delete' as MenuItemConstructorOptions['role'] },
-        { type: 'separator' as MenuItemConstructorOptions['type'] },
-        { role: 'selectAll' as MenuItemConstructorOptions['role'] },
-      ]),
+          { role: 'delete' as MenuItemConstructorOptions['role'] },
+          { type: 'separator' as MenuItemConstructorOptions['type'] },
+          { role: 'selectAll' as MenuItemConstructorOptions['role'] },
+        ]),
     ],
   },
   // { role: 'viewMenu' }
@@ -80,7 +80,7 @@ const template:  MenuItemConstructorOptions[]  = [
       { role: 'reload' as MenuItemConstructorOptions['role'] },
       { role: 'forcereload' as MenuItemConstructorOptions['role'] },
       { role: 'toggledevtools' as MenuItemConstructorOptions['role'] },
-      { type: 'separator' as MenuItemConstructorOptions['type']},
+      { type: 'separator' as MenuItemConstructorOptions['type'] },
       { role: 'resetzoom' as MenuItemConstructorOptions['role'] },
       { role: 'zoomin' as MenuItemConstructorOptions['role'] },
       { role: 'zoomout' as MenuItemConstructorOptions['role'] },
@@ -100,8 +100,8 @@ const template:  MenuItemConstructorOptions[]  = [
         { type: 'separator' as MenuItemConstructorOptions['type'] },
         { role: 'window' as MenuItemConstructorOptions['role'] },
       ] : [
-        { role: 'close' as MenuItemConstructorOptions['role'] },
-      ]),
+          { role: 'close' as MenuItemConstructorOptions['role'] },
+        ]),
     ],
   },
   {
@@ -119,6 +119,6 @@ const template:  MenuItemConstructorOptions[]  = [
 
 const menu = Menu.buildFromTemplate(template)
 
-export function createAppMenu () {
+export function createAppMenu() {
   Menu.setApplicationMenu(menu)
 }

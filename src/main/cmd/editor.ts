@@ -3,7 +3,7 @@ import { ipcMsg } from '../../shared/ipc/ipc'
 
 let theActivedEditor: BrowserWindow | null = null
 
-export function newWindow () {
+export function newWindow() {
   const win = new BrowserWindow({
     webPreferences: {
       nodeIntegration: true,
@@ -25,11 +25,11 @@ export function newWindow () {
   win.loadFile('./src/renderer/editor/index.html')
 }
 
-export function activedEditor () {
+export function activedEditor() {
   return theActivedEditor
 }
 
-export function getEditorHtml (editor: BrowserWindow) {
+export function getEditorHtml(editor: BrowserWindow) {
   return new Promise((resolve, reject) => {
     editor.webContents.send(ipcMsg.EDITOR_GET_HTML)
     ipcMain.once(ipcMsg.EDITOR_RETURN_HTML, (e, html) => {

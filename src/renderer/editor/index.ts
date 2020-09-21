@@ -1,6 +1,6 @@
 import { ipcRenderer } from 'electron'
 import markdownIt from 'markdown-it'
-import {ipcMsg} from '../../shared/ipc/ipc'
+import { ipcMsg } from '../../shared/ipc/ipc'
 
 const md = markdownIt()
 let editor: HTMLTextAreaElement, preview: HTMLDivElement

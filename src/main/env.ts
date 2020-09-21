@@ -1,6 +1,6 @@
 
 // https://nodejs.org/api/process.html#process_process_platform
-export const platform:string = process.platform
+export const platform: string = process.platform
 export const PLATFORMS = {
   AIX: 'aix',
   DARWIN: 'darwin',
