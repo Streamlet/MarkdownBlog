@@ -1,6 +1,10 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { ipcRenderer, remote } from 'electron'
 import MetaWeblog from 'metaweblog-api'
 import { ipcMsg } from '../../shared/ipc/ipc'
+
+import './index.css'
 
 let url: HTMLInputElement, username: HTMLInputElement, password: HTMLInputElement, fetchCategories: HTMLInputElement, categoriesContainer: HTMLDivElement, title: HTMLInputElement, publish: HTMLInputElement, close: HTMLInputElement
 let content: string
@@ -125,6 +129,24 @@ const onReady = function () {
 }
 
 window.addEventListener('DOMContentLoaded', onReady)
+
+ReactDOM.render(
+  <React.StrictMode>
+    <div>MetaWeblog API address</div>
+    <input className="field" type="text" id="url" />
+    <div>User name</div>
+    <input className="field" type="text" id="username" />
+    <div>Password</div>
+    <input className="field" type="password" id="password" />
+    <input disabled type="button" id="fetch-categories" value="Fetch categories" />
+    <div id="categories-container"></div>
+    <div>Title</div>
+    <input className="field" type="text" id="title" />
+    <input disabled type="button" id="publish" value="Publish" />
+    <input type="button" id="close" value="Close" />
+  </React.StrictMode>,
+  document.getElementById('root')
+)
 
 const onSetHtml = function (e: Electron.IpcRendererEvent, html: string) {
   content = html

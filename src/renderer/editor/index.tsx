@@ -1,6 +1,10 @@
 import { ipcRenderer } from 'electron'
+import React from 'react';
+import ReactDOM from 'react-dom';
 import markdownIt from 'markdown-it'
 import { ipcMsg } from '../../shared/ipc/ipc'
+
+import './index.css'
 
 const md = markdownIt()
 let editor: HTMLTextAreaElement, preview: HTMLDivElement
@@ -20,6 +24,16 @@ const onReady = function () {
 }
 
 window.addEventListener('DOMContentLoaded', onReady)
+
+ReactDOM.render(
+  <React.StrictMode>
+    <div className="container">
+      <textarea id="editor"></textarea>
+      <div id="preview"></div>
+    </div>
+  </React.StrictMode>,
+  document.getElementById('root')
+)
 
 const onGetHtml = function () {
   return md.render(editor.value)

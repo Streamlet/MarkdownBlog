@@ -5,6 +5,7 @@ let theActivedEditor: BrowserWindow | null = null
 
 export function newWindow() {
   const win = new BrowserWindow({
+    title: 'Markdown Blog',
     webPreferences: {
       nodeIntegration: true,
     },
@@ -22,7 +23,7 @@ export function newWindow() {
       theActivedEditor = null
     }
   })
-  win.loadFile('./src/renderer/editor/index.html')
+  win.loadFile('./build/renderer/editor.html')
 }
 
 export function activedEditor() {

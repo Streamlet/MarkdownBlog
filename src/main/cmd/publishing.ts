@@ -3,6 +3,7 @@ import { ipcMsg } from '../../shared/ipc/ipc'
 
 export function showWindow(parent: BrowserWindow, html: string) {
   const win = new BrowserWindow({
+    title: 'Publish',
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
@@ -19,7 +20,7 @@ export function showWindow(parent: BrowserWindow, html: string) {
   win.once('ready-to-show', () => {
     win.show()
   })
-  win.loadFile('./src/renderer/publishing/index.html')
+  win.loadFile('./build/renderer/publishing.html')
   win.webContents.on('did-finish-load', () => {
     win.webContents.send(ipcMsg.PUBLISHER_SET_HTML, html)
   })
