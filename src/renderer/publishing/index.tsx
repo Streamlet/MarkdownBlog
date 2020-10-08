@@ -1,6 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { ipcRenderer, remote } from 'electron'
+import { IpcRendererEvent, ipcRenderer, remote } from 'electron'
+import React from 'react'
+import ReactDOM from 'react-dom'
+
 import MetaWeblog from 'metaweblog-api'
 import { ipcMsg } from '../../shared/ipc/ipc'
 
@@ -145,10 +146,10 @@ ReactDOM.render(
     <input disabled type="button" id="publish" value="Publish" />
     <input type="button" id="close" value="Close" />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 )
 
-const onSetHtml = function (e: Electron.IpcRendererEvent, html: string) {
+const onSetHtml = function (e: IpcRendererEvent, html: string) {
   content = html
   checkPublish()
 }

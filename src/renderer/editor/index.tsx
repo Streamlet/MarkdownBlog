@@ -1,6 +1,6 @@
 import { ipcRenderer } from 'electron'
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { ipcMsg } from '../../shared/ipc/ipc'
 import Vditor from 'vditor'
 
@@ -19,7 +19,7 @@ ReactDOM.render(
   <React.StrictMode>
     <div id="editor"></div>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 )
 
 const onGetHtml = function () {

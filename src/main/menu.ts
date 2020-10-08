@@ -34,14 +34,13 @@ const template: MenuItemConstructorOptions[] = [
             const html = await editor.getEditorHtml(activedEditor) as string
             publishing.showWindow(activedEditor, html)
           }
-
         },
       },
       ...(isMac ? [
         { role: 'close' as MenuItemConstructorOptions['role'] },
       ] : [
-          { role: 'quit' as MenuItemConstructorOptions['role'] },
-        ]),
+        { role: 'quit' as MenuItemConstructorOptions['role'] },
+      ]),
     ],
   },
   // { role: 'editMenu' }
@@ -67,10 +66,10 @@ const template: MenuItemConstructorOptions[] = [
           ],
         },
       ] : [
-          { role: 'delete' as MenuItemConstructorOptions['role'] },
-          { type: 'separator' as MenuItemConstructorOptions['type'] },
-          { role: 'selectAll' as MenuItemConstructorOptions['role'] },
-        ]),
+        { role: 'delete' as MenuItemConstructorOptions['role'] },
+        { type: 'separator' as MenuItemConstructorOptions['type'] },
+        { role: 'selectAll' as MenuItemConstructorOptions['role'] },
+      ]),
     ],
   },
   // { role: 'viewMenu' }
@@ -100,8 +99,8 @@ const template: MenuItemConstructorOptions[] = [
         { type: 'separator' as MenuItemConstructorOptions['type'] },
         { role: 'window' as MenuItemConstructorOptions['role'] },
       ] : [
-          { role: 'close' as MenuItemConstructorOptions['role'] },
-        ]),
+        { role: 'close' as MenuItemConstructorOptions['role'] },
+      ]),
     ],
   },
   {
@@ -119,6 +118,6 @@ const template: MenuItemConstructorOptions[] = [
 
 const menu = Menu.buildFromTemplate(template)
 
-export function createAppMenu() {
+export function createAppMenu () {
   Menu.setApplicationMenu(menu)
 }
