@@ -11,7 +11,6 @@ export function newWindow() {
     },
     show: false,
   })
-  win.maximize()
   win.once('ready-to-show', () => {
     win.show()
   })

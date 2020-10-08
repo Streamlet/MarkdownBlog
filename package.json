@@ -40,6 +40,8 @@
     "electron": "^10.1.1",
     "electron-builder": "^22.8.0",
     "html-webpack-plugin": "^4.5.0",
+    "sass": "^1.27.0",
+    "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
     "ts-loader": "^8.0.4",
     "ts-node": "^9.0.0",
@@ -49,12 +51,11 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "@types/markdown-it": "^10.0.2",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
-    "markdown-it": "^11.0.1",
     "metaweblog-api": "^1.2.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "vditor": "^3.5.4"
   }
 }

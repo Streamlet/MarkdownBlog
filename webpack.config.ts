@@ -23,9 +23,17 @@ const baseConfig: webpack.Configuration = {
                         options: {
                             importLoaders: 1,
                             modules: false,
-                        }
-                    }
-                ]
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.s[ac]ss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
+                ],
             },
         ],
     },

@@ -1,42 +1,29 @@
 import { ipcRenderer } from 'electron'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import markdownIt from 'markdown-it'
 import { ipcMsg } from '../../shared/ipc/ipc'
+import Vditor from 'vditor'
 
+import 'vditor/src/assets/scss/index.scss'
 import './index.css'
 
-const md = markdownIt()
-let editor: HTMLTextAreaElement, preview: HTMLDivElement
-
-const updatePreview = () => {
-  preview.innerHTML = md.render(editor.value)
-}
+let vditor: Vditor
 
 const onReady = function () {
-  editor = document.getElementById('editor') as HTMLTextAreaElement
-  preview = document.getElementById('preview') as HTMLDivElement
-
-  editor.addEventListener('keyup', updatePreview)
-  editor.addEventListener('change', updatePreview)
-
-  updatePreview()
+  vditor = new Vditor('editor')
 }
 
 window.addEventListener('DOMContentLoaded', onReady)
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="container">
-      <textarea id="editor"></textarea>
-      <div id="preview"></div>
-    </div>
+    <div id="editor"></div>
   </React.StrictMode>,
   document.getElementById('root')
 )
 
 const onGetHtml = function () {
-  return md.render(editor.value)
+  return vditor.getHTML()
 }
 ipcRenderer.on(ipcMsg.EDITOR_GET_HTML, () => {
   ipcRenderer.send(ipcMsg.EDITOR_RETURN_HTML, onGetHtml())
