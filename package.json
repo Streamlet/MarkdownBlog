@@ -60,10 +60,9 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "@types/jquery": "^3.5.2",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
-    "jquery": "^3.5.1",
+    "antd": "^4.6.6",
     "metaweblog-api": "^1.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

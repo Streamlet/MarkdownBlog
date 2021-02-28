@@ -14,7 +14,7 @@ export function showWindow (parent: BrowserWindow, html: string) {
     resizable: false,
     minimizable: false,
     width: 600,
-    height: 400,
+    height: 480,
   })
   win.setMenu(null)
   win.once('ready-to-show', () => {

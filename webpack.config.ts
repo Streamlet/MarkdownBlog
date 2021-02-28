@@ -57,7 +57,7 @@ const mainConfig = {
 const rendererConfigList = ((): webpack.Configuration[] => {
   const result: webpack.Configuration[] = []
   fs.readdirSync('./src/renderer').filter((f) => {
-    return fs.lstatSync(`./src/renderer/${f}`).isDirectory()
+    return fs.lstatSync(`./src/renderer/${f}`).isDirectory() && fs.existsSync(`./src/renderer/${f}/index.tsx`)
   }).forEach((name) => {
     const entry: { [key: string]: string; } = {}
     entry[name] = `./src/renderer/${name}/index.tsx`

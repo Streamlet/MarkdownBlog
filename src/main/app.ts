@@ -1,7 +1,7 @@
 import { app, BrowserWindow } from 'electron'
 import * as editor from './cmd/editor'
 import * as menu from './menu'
-import * as env from './env'
+// import * as env from './env'
 
 app.whenReady().then(() => {
   editor.newWindow()
@@ -12,9 +12,9 @@ app.whenReady().then(() => {
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  if (env.platform !== env.PLATFORMS.DARWIN) {
-    app.quit()
-  }
+  // if (env.platform !== env.PLATFORMS.DARWIN) {
+  app.quit()
+  // }
 })
 
 app.on('activate', () => {
